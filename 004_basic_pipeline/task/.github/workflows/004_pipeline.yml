@@ -1,4 +1,4 @@
-name: Terraform CI
+name: 004 - Terraform CI
 
 # TODO: trigger on every push to `main`, and on every pull request
 # (regardless of target branch). See the workflow syntax docs linked

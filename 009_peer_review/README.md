@@ -58,8 +58,16 @@ Everyone does this part individually, once:
    - `prefix` — `"terraform-course/team/YOUR_NAME"`. This is a new,
      separate prefix from your solo pipeline's — nothing here touches
      your individual state.
-3. Copy `009_peer_review/template/.github/workflows/terraform-template.yml`
-   to `.github/workflows/YOUR_NAME-terraform.yml`, and edit:
+3. From the **repo root** of the shared repo (not any exercise
+   subfolder), copy the template to your own, uniquely-named workflow
+   file — same `.github/workflows/` path every other exercise has used,
+   just now with your name in the filename so it doesn't collide with
+   a classmate's:
+   ```bash
+   cp 009_peer_review/template/.github/workflows/terraform-template.yml \
+     .github/workflows/YOUR_NAME-terraform.yml
+   ```
+   Then edit your new copy at `.github/workflows/YOUR_NAME-terraform.yml`:
    - Both `paths:` filters (under `pull_request:` and `push:`) to
      `students/YOUR_NAME/infra/**`.
    - `working-directory` (two places) to `students/YOUR_NAME/infra`.

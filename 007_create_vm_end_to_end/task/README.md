@@ -25,10 +25,13 @@ your own `terraform apply`.
      block here is what gives the VM an ephemeral external IP, so you
      can actually reach it.
 3. Add the `vm_external_ip` output.
-4. Branch, commit, push, open a PR.
-5. On the **Checks** tab, open the `plan` job's log — confirm it shows
-   `1 to add, 0 to change, 0 to destroy` for the VM.
-6. Merge. Watch the `apply` job create it.
+4. Branch, commit, push, open a PR. You'll see three checks now
+   (`004`, `005`, `006 - Terraform CI`) — `004` and `005` still just
+   run `fmt`/`validate`/`init`; only `006`'s has `plan`/`apply` jobs.
+5. On the **Checks** tab, open **`006 - Terraform CI`**'s `plan` job
+   log — confirm it shows `1 to add, 0 to change, 0 to destroy` for
+   the VM.
+6. Merge. Watch `006 - Terraform CI`'s `apply` job create it.
 7. Confirm, either way:
    ```bash
    gcloud compute instances list --filter="name~gitops-vm"
@@ -41,9 +44,9 @@ your own `terraform apply`.
 
 ## Success criteria
 
-The VM exists in GCP, was created entirely by the `apply` job (never
-by a local `terraform apply`), and `terraform output vm_external_ip`
-returns a real IP address.
+The VM exists in GCP, was created entirely by `006 - Terraform CI`'s
+`apply` job (never by a local `terraform apply`), and
+`terraform output vm_external_ip` returns a real IP address.
 
 ## Pro-tips
 

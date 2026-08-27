@@ -47,8 +47,9 @@ for.
      reviewers** and add a classmate (or yourself, to test solo).
    - Under **Environment secrets**, add `NOTIFY_WEBHOOK_URL` with your
      webhook URL from step 1.
-4. Edit your own `.github/workflows/YOUR_NAME-terraform.yml` — on the
-   `apply` job:
+4. Edit your own `.github/workflows/YOUR_NAME-terraform.yml` — the
+   file already at the shared repo's **root**, the one you created in
+   [009_peer_review](../009_peer_review) — on the `apply` job:
    - Add `environment: YOUR_NAME-prod` at the job level (a sibling of
      `runs-on:`, `if:`, `defaults:`). This is what links the job to
      the environment's protection rules and makes its secret

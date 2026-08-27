@@ -14,6 +14,14 @@ offline. Once `infra/main.tf` has a real `backend "gcs"` block,
 which means the workflow needs GCP credentials *before* `init` runs,
 not just before `apply`.
 
+This exercise's workflow is a new file, `005_pipeline.yml`, sitting
+alongside `004_pipeline.yml` rather than replacing it — from this
+point on, every PR triggers **both** checks. That's expected: each
+file is a snapshot of what that exercise built, and GitHub runs every
+workflow whose trigger matches, with no concept of one "superseding"
+another. `004 - Terraform CI` keeps checking `fmt`/`validate` forever;
+it isn't wrong, it's just no longer the only check running.
+
 ## Vocabulary
 
 - **`permissions: id-token: write`** — a workflow (or job) has to
@@ -29,10 +37,11 @@ not just before `apply`.
 
 ## Tasks
 
-1. Copy this exercise's starting files over `infra/` and `.github/` at
-   the repo root — both paths below already match their repo-root
-   destination exactly, and both build directly on 004's solution, so
-   this overwrites those files rather than merging by hand:
+1. From the repo root: overwrite `infra/` with this exercise's version
+   (it builds directly on 004's `infra/`, so this replaces those `.tf`
+   files rather than merging by hand), and add the **new**
+   `005_pipeline.yml` alongside `004_pipeline.yml` — nothing from 004
+   gets removed or edited:
    ```bash
    cp -r 005_pipeline_remote_state/task/infra/. ./infra/
    cp -r 005_pipeline_remote_state/task/.github/. ./.github/
@@ -44,9 +53,9 @@ not just before `apply`.
    - `prefix` — `"terraform-course/pipeline"`. This is a new prefix,
      separate from `002`'s own — `infra/`'s state lives on its own
      from here on.
-3. In the copy you just created at `.github/workflows/terraform.yml`
-   (repo root — not the template still under
-   `005_pipeline_remote_state/task/`), fill in the `TODO`s:
+3. In the new file at `.github/workflows/005_pipeline.yml` (repo root
+   — not the template still under `005_pipeline_remote_state/task/`),
+   fill in the `TODO`s:
    - The `permissions:` block.
    - The **Authenticate to Google Cloud** step, using
      `google-github-actions/auth` with the provider resource name and
@@ -61,10 +70,12 @@ not just before `apply`.
 
 ## Success criteria
 
-The workflow's `terraform init` step succeeds and its log shows
-`Successfully configured the backend "gcs"!` — and a state file exists
-under `terraform-course/pipeline/` in your bucket, created entirely by
-CI, never by a local `terraform init` on your own machine.
+The **`005 - Terraform CI`** check's `terraform init` step succeeds
+and its log shows `Successfully configured the backend "gcs"!` — and a
+state file exists under `terraform-course/pipeline/` in your bucket,
+created entirely by CI, never by a local `terraform init` on your own
+machine. `004 - Terraform CI` also still runs and still passes,
+unrelated to any of this.
 
 ## Pro-tips
 

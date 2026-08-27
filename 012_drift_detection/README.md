@@ -24,7 +24,9 @@ truth" from way back in
 
 ## Tasks
 
-1. Create a new workflow file,
+1. At the shared repo's **root** — the same `.github/workflows/`
+   directory your `YOUR_NAME-terraform.yml` already lives in, not a
+   new location — create a second, new workflow file,
    `.github/workflows/YOUR_NAME-drift-detection.yml`:
    ```yaml
    name: Drift Detection - YOUR_NAME
@@ -81,9 +83,9 @@ truth" from way back in
    - If the manual change should stick, open a PR updating `main` to
      match it (accept the drift into git).
    - If it shouldn't, do nothing — the next real `apply` (from any
-     other merged change, or by manually re-running the main
-     `terraform.yml`'s `apply` job) puts it back, since `main` never
-     changed.
+     other merged change, or by manually re-running your
+     `YOUR_NAME-terraform.yml`'s `apply` job) puts it back, since
+     `main` never changed.
 
 ## Success criteria
 

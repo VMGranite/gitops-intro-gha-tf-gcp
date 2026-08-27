@@ -15,6 +15,12 @@ exercise is entirely about the workflow's *shape*, not what it manages
 yet. Don't be surprised when `plan` and `apply` both report "no
 changes" — that's expected and correct.
 
+This is a third new file, `006_pipeline.yml`, alongside
+`004_pipeline.yml` and `005_pipeline.yml` — by the end of this
+exercise every PR triggers three separate checks. Only this one ever
+runs `apply`; the other two are still just `fmt`/`validate`/`init`
+checks, same as they've always been, just running in parallel now.
+
 ## Vocabulary
 
 - **`github.event_name`** — a built-in value telling you what
@@ -37,13 +43,15 @@ changes" — that's expected and correct.
 
 ## Tasks
 
-1. Copy this exercise's files into place (continues directly from
-   005's solution):
+1. From the **repo root**, add this exercise's new workflow file
+   alongside the two already there:
    ```bash
    cp -r 006_plan_on_pr_apply_on_merge/task/.github/. ./.github/
    ```
    (`infra/` doesn't change in this exercise — nothing to copy there.)
-2. In `.github/workflows/terraform.yml`, the `plan` job's `TODO`s:
+2. In the new file at `.github/workflows/006_pipeline.yml` (repo root
+   — not the template still under
+   `006_plan_on_pr_apply_on_merge/task/`), the `plan` job's `TODO`s:
    - The `if:` condition — this job should run only on `pull_request`
      events.
    - The `terraform plan` step.
@@ -61,9 +69,11 @@ changes" — that's expected and correct.
 
 ## Success criteria
 
-Two workflow runs total, with opposite jobs skipped in each: on the
-PR, `plan` ran and `apply` was skipped; after merge, `apply` ran and
-`plan` was skipped. Never both, never neither.
+Within the **`006 - Terraform CI`** check specifically (ignore `004`
+and `005`'s, which behave exactly as before): two workflow runs total,
+with opposite jobs skipped in each — on the PR, `plan` ran and `apply`
+was skipped; after merge, `apply` ran and `plan` was skipped. Never
+both, never neither.
 
 ## Pro-tips
 

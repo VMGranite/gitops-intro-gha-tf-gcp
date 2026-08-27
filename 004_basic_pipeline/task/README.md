@@ -29,10 +29,20 @@ begin.
 Workflow files have the same constraint, for a different reason:
 GitHub only runs workflows it finds in `.github/workflows/` at the
 repo root — not in a subfolder. So this exercise's starter workflow
-lives at `task/.github/workflows/terraform.yml` — the exact same path
-it needs at the repo root, just rooted inside `004_basic_pipeline/`
-instead. Copying `task/.github` to the repo root's `.github` (step 1
-below) is what actually puts it where GitHub will find and run it.
+lives at `task/.github/workflows/004_pipeline.yml` — the exact same
+path it needs at the repo root, just rooted inside
+`004_basic_pipeline/` instead. Copying `task/.github` to the repo
+root's `.github` (step 1 below) is what actually puts it where GitHub
+will find and run it.
+
+Each exercise's workflow file gets its own name — `004_pipeline.yml`
+here, `005_pipeline.yml` next, and so on — instead of every exercise
+overwriting one shared file. Nothing you build gets erased by the
+next exercise; `.github/workflows/` accumulates one file per exercise,
+same as the numbered folders themselves do. GitHub happily runs every
+workflow file that matches a trigger, so once 005 and 006 exist
+alongside this one, you'll see multiple checks on a single PR — that's
+expected, not a bug; see 005's README for what that looks like.
 
 ## Vocabulary
 
@@ -60,10 +70,10 @@ below) is what actually puts it where GitHub will find and run it.
    cp -r 004_basic_pipeline/task/.github ./.github
    ```
 2. Edit `infra/terraform.tfvars` with your real `project_id`.
-3. Open the copy you just created at `.github/workflows/terraform.yml`
-   (repo root — **not** the one still sitting under
-   `004_basic_pipeline/task/`, which is only the template) and fill in
-   the `TODO`s:
+3. Open the copy you just created at
+   `.github/workflows/004_pipeline.yml` (repo root — **not** the one
+   still sitting under `004_basic_pipeline/task/`, which is only the
+   template) and fill in the `TODO`s:
    - A trigger that runs on every push to `main` **and** every pull
      request, regardless of target branch.
    - Which runner to use.
@@ -74,8 +84,8 @@ below) is what actually puts it where GitHub will find and run it.
    - The `fmt -check` and `validate` commands themselves.
 4. Following the branch → commit → push → PR loop from
    [001_first_pull_request](../001_first_pull_request): branch, add
-   both `infra/` and `.github/workflows/terraform.yml`, commit, push,
-   and open a PR.
+   both `infra/` and `.github/workflows/004_pipeline.yml`, commit,
+   push, and open a PR.
 5. On the PR, click the **Checks** tab (or the small status icon next
    to your latest commit) to watch the workflow run. Fix anything that
    fails, push again — the workflow reruns automatically on every new
@@ -84,9 +94,9 @@ below) is what actually puts it where GitHub will find and run it.
 
 ## Success criteria
 
-The workflow shows a green check on your PR, and the **Actions** tab
-in GitHub (top nav of the repo) shows a successful run with both the
-`fmt` and `validate` steps completed.
+The **`004 - Terraform CI`** check shows a green check on your PR, and
+the **Actions** tab in GitHub (top nav of the repo) shows a successful
+run of it with both the `fmt` and `validate` steps completed.
 
 ## Pro-tips
 
@@ -98,8 +108,9 @@ in GitHub (top nav of the repo) shows a successful run with both the
   step in this job executes from inside `infra/` automatically — you
   don't need `cd infra &&` in every command.
 - If the workflow doesn't appear at all under the **Actions** tab,
-  double check the file is really at `.github/workflows/terraform.yml`
-  from the repo root, not nested under `004_basic_pipeline/`.
+  double check the file is really at
+  `.github/workflows/004_pipeline.yml` from the repo root, not nested
+  under `004_basic_pipeline/`.
 - Pin action versions (`actions/checkout@v4`, not just
   `actions/checkout`) — floating on whatever's "latest" means your
   pipeline's behavior can change under you without any change to your

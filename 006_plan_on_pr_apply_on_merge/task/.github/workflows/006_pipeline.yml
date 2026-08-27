@@ -1,4 +1,4 @@
-name: Terraform CI
+name: 006 - Terraform CI
 
 on:
   pull_request:
@@ -11,7 +11,8 @@ permissions:
 
 jobs:
   plan:
-    if: github.event_name == 'pull_request'
+    # TODO: run only on pull_request events
+    if:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -41,10 +42,13 @@ jobs:
         run: terraform validate
 
       - name: Terraform plan
-        run: terraform plan
+        # TODO: run `terraform plan`
+        run:
 
   apply:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # TODO: run only on a push to main — check both github.event_name
+    # and github.ref
+    if:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -68,4 +72,5 @@ jobs:
         run: terraform init
 
       - name: Terraform apply
-        run: terraform apply -auto-approve
+        # TODO: run `terraform apply`, non-interactively
+        run:
