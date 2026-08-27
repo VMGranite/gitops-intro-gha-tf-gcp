@@ -1,0 +1,43 @@
+name: Terraform CI
+
+# TODO: trigger on every push to `main`, and on every pull request
+# (regardless of target branch). See the workflow syntax docs linked
+# in the README for the `on:` key's shape.
+on:
+
+jobs:
+  fmt-and-validate:
+    # TODO: which runner? ubuntu-latest is what this course uses
+    # throughout.
+    runs-on:
+
+    defaults:
+      run:
+        # Every `run:` step below executes from here — no `cd` needed.
+        working-directory: infra
+
+    steps:
+      - name: Checkout code
+        # TODO: use actions/checkout so the runner actually has your
+        # repo's files. Pin a version, e.g. @v4.
+        uses:
+
+      - name: Set up Terraform
+        # TODO: use hashicorp/setup-terraform so the `terraform` CLI
+        # exists on the runner at all. Pin a version, e.g. @v3.
+        uses:
+        with:
+          terraform_version: "1.7.5"
+
+      - name: Terraform fmt check
+        # TODO: run `terraform fmt -check` — non-zero exit (failing
+        # the step) if any file isn't canonically formatted. Doesn't
+        # change anything itself.
+        run:
+
+      - name: Terraform init
+        run: terraform init
+
+      - name: Terraform validate
+        # TODO: run `terraform validate`
+        run:
