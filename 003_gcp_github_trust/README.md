@@ -207,9 +207,8 @@ repo.
   exercise's resources actually need. `Editor` is used here so this
   course doesn't send you back to IAM every time a new exercise
   introduces a new resource type — real production setups should
-  scope this much tighter, the same way
-  `gcp-infra-as-code`'s `020_state_bucket_least_privilege` scopes
-  access to the state bucket itself.
+  scope this much tighter, including on the state bucket's own access
+  grants.
 - Nothing here is testable end-to-end yet — there's no workflow to run
   it from until [005_pipeline_remote_state](../005_pipeline_remote_state).
   If something's misconfigured, you won't find out until then; it's

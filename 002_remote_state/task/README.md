@@ -84,8 +84,8 @@ gcloud storage ls gs://YOUR_PROJECT_ID-tf-state/terraform-course/002-remote-stat
 ```
 
 (No local `terraform.tfstate` should appear in this folder at all —
-unlike every exercise in `gcp-infra-as-code`, this config never used
-local state even once.)
+unlike a Terraform config left on its default local backend, this one
+never used local state even once.)
 
 ## Pro-tips
 
@@ -94,8 +94,8 @@ local state even once.)
   hand in Part 1), so `destroy` only tears down the scratch resource
   inside it, which is exactly what you want.
 - If `init` fails with a permissions error, double-check you're
-  authenticated as yourself for now (`gcloud auth application-default
-  login`, from `gcp-infra-as-code`'s `000_start_here`) —
+  authenticated as yourself for now (`gcloud auth
+  application-default login` — see the root README's General setup) —
   [003_gcp_github_trust](../../003_gcp_github_trust) is what gets
   *GitHub Actions* permission on this bucket; that's a separate
   identity from your own.

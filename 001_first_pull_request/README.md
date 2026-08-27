@@ -115,7 +115,4 @@ of it.
 
 [002_remote_state](../002_remote_state) is next — you'll start
 building the actual pipeline this branch/commit/push/PR/merge loop is
-for. What all of it has to do with the term "GitOps" specifically gets
-its own exercise later, once there's a real pipeline to point at
-instead of just a definition to take on faith:
-[007_what_is_gitops](../007_what_is_gitops).
+for.

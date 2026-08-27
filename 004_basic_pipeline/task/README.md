@@ -22,7 +22,7 @@ from your terminal. Starting now, one directory — `infra/`, at the
 **repo root**, not inside this exercise's folder — is what your
 GitHub Actions pipeline manages, and it stays around for the rest of
 the course: 005 gives it a backend, 006 makes it plan/apply
-automatically on its own, 008 adds a real VM to it. This exercise's
+automatically on its own, 007 adds a real VM to it. This exercise's
 `task/infra/` is the starting point — copy it to the repo root to
 begin.
 
