@@ -28,9 +28,11 @@ begin.
 
 Workflow files have the same constraint, for a different reason:
 GitHub only runs workflows it finds in `.github/workflows/` at the
-repo root — not in a subfolder. So `task/workflows/terraform.yml`
-below is likewise something you copy into place, not something that
-runs from inside `004_basic_pipeline/`.
+repo root — not in a subfolder. So this exercise's starter workflow
+lives at `task/.github/workflows/terraform.yml` — the exact same path
+it needs at the repo root, just rooted inside `004_basic_pipeline/`
+instead. Copying `task/.github` to the repo root's `.github` (step 1
+below) is what actually puts it where GitHub will find and run it.
 
 ## Vocabulary
 
@@ -51,14 +53,17 @@ runs from inside `004_basic_pipeline/`.
 
 ## Tasks
 
-1. From the repo root, copy this exercise's starting files into place:
+1. From the repo root, copy this exercise's starting files into place —
+   both paths below already match their repo-root destination exactly:
    ```bash
    cp -r 004_basic_pipeline/task/infra ./infra
-   mkdir -p .github/workflows
-   cp 004_basic_pipeline/task/workflows/terraform.yml .github/workflows/terraform.yml
+   cp -r 004_basic_pipeline/task/.github ./.github
    ```
 2. Edit `infra/terraform.tfvars` with your real `project_id`.
-3. Open `.github/workflows/terraform.yml` and fill in the `TODO`s:
+3. Open the copy you just created at `.github/workflows/terraform.yml`
+   (repo root — **not** the one still sitting under
+   `004_basic_pipeline/task/`, which is only the template) and fill in
+   the `TODO`s:
    - A trigger that runs on every push to `main` **and** every pull
      request, regardless of target branch.
    - Which runner to use.

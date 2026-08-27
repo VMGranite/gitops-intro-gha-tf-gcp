@@ -1,0 +1,48 @@
+name: Terraform CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# TODO: add a `permissions:` block granting `id-token: write` (needed
+# to request an OIDC token at all) and `contents: read` (needed for
+# actions/checkout).
+permissions:
+
+jobs:
+  fmt-and-validate:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: infra
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        # TODO: use google-github-actions/auth@v2, with:
+        #   workload_identity_provider: the resource name you copied
+        #     at the end of 003 (Part 5, step 1)
+        #   service_account: the service account email from the same
+        #     step
+        uses:
+        with:
+          workload_identity_provider:
+          service_account:
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.7.5"
+
+      - name: Terraform fmt check
+        run: terraform fmt -check
+
+      - name: Terraform init
+        run: terraform init
+
+      - name: Terraform validate
+        run: terraform validate
