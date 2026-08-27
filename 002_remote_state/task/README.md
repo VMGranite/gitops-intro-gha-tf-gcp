@@ -67,10 +67,10 @@ this first one).
    - `prefix` — `"terraform-course/002-remote-state"`. Every later
      exercise uses this same bucket with its own `prefix`, so each
      exercise's state stays separate inside one shared bucket.
-3. Add a small `google_storage_bucket` resource — its own name, region
-   scratch bucket, nothing important — just something for this
-   exercise's state to actually track. See the Hints if you want to
-   reuse a resource you already wrote in `gcp-infra-as-code`.
+3. Uncomment the `google_storage_bucket "scratch"` block already
+   sketched out at the bottom of `main.tf` — it's a throwaway bucket,
+   with nothing important in it, that exists only so this exercise's
+   state has something real to track.
 4. Run `terraform fmt`, `terraform init`, `terraform plan`, and
    `terraform apply`.
 
@@ -87,7 +87,7 @@ gcloud storage ls gs://YOUR_PROJECT_ID-tf-state/terraform-course/002-remote-stat
 unlike every exercise in `gcp-infra-as-code`, this config never used
 local state even once.)
 
-## Hints
+## Pro-tips
 
 - Do **not** run `terraform destroy` on the bucket itself — it isn't a
   Terraform resource in this config to begin with (you made it by

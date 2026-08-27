@@ -123,12 +123,14 @@ left to right.
    - Click **Continue**.
 4. **Configure provider attributes** — this is the mapping between
    GitHub's identity token claims and attributes GCP can use in
-   permission rules. Add these mappings:
+   permission rules. The Console pre-fills one row,
+   `google.subject = assertion.sub` — leave that one as-is. Click **Add
+   mapping** twice more and add these two:
    | Google attribute | Maps from |
    |---|---|
-   | `google.subject` | `assertion.sub` |
    | `attribute.repository` | `assertion.repository` |
    | `attribute.repository_owner` | `assertion.repository_owner` |
+   You should end up with three rows total.
 5. **Attribute condition** (required) — restrict which GitHub repos
    this provider will trust *at all*, before any IAM grant even comes
    into play:
@@ -146,11 +148,13 @@ left to right.
 2. **+ Create Service Account.**
    - **Name:** `github-actions-ci`.
    - Click **Create and Continue**.
-3. **Grant this service account access to the project** — for this
-   course, grant it the **Editor** role. (This is broader than a
-   production setup should use — see Hints for the least-privilege
-   alternative.)
-4. Click **Done**.
+3. On the **Grant this service account access to project** screen,
+   click the **Select a role** dropdown, type `Editor` into the filter
+   box, and select the **Editor** role from the filtered list. (This
+   is broader than a production setup should use — see Pro-tips for
+   the least-privilege alternative.)
+4. Click **Continue**, then **Done** (no need to grant users access to
+   this service account — skip that screen).
 
 ## Part 4 — Connect the provider to the service account
 
@@ -194,7 +198,7 @@ principal with the `Workload Identity User` role, whose name contains
 your pool ID and your `owner/repo` — not a wildcard, not any other
 repo.
 
-## Hints
+## Pro-tips
 
 - **Least-privilege alternative to Part 3's `Editor` grant:** instead
   of `Editor` at the project level, grant only `Storage Object Admin`

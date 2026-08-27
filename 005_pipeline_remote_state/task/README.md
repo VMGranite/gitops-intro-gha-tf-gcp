@@ -66,7 +66,7 @@ The workflow's `terraform init` step succeeds and its log shows
 under `terraform-course/pipeline/` in your bucket, created entirely by
 CI, never by a local `terraform init` on your own machine.
 
-## Hints
+## Pro-tips
 
 - Notice neither the provider resource name nor the service account
   email needs to be a GitHub **secret** — neither one is sensitive on

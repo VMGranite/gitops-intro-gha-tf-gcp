@@ -88,7 +88,7 @@ The workflow shows a green check on your PR, and the **Actions** tab
 in GitHub (top nav of the repo) shows a successful run with both the
 `fmt` and `validate` steps completed.
 
-## Hints
+## Pro-tips
 
 - `terraform init` is already filled in for you in the starter file —
   it has to run before `validate` (Terraform needs the provider
