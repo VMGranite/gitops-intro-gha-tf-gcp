@@ -9,12 +9,13 @@
 crash.log
 crash.*.log
 
-# Exclude all .tfvars files, which are likely to contain sensitive data, such as
-# password, private keys, and other secrets. These should not be part of version 
-# control as they are data points which are potentially sensitive and subject 
-# to change depending on the environment.
-*.tfvars
-*.tfvars.json
+# terraform.tfvars is intentionally committed throughout this course
+# (with placeholder values you edit) — see 001_remote_state's README
+# for why. GCP credentials never belong in a .tfvars file; the line
+# below catches those instead.
+*key*.json
+*credentials*.json
+service-account*.json
 
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
