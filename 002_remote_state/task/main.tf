@@ -8,10 +8,13 @@ terraform {
     }
   }
 
-  # TODO: add a backend "gcs" block here pointing at the bucket you
-  # created by hand in the Console (see README.md Part 1). `bucket`
-  # must be a literal string, e.g. "your-project-id-tf-state" — not a
-  # variable.
+  # Backend config can't reference variables — it has to be a literal.
+  # This bucket was created by hand in the Console (see
+  # task/README.md Part 1), not by this or any Terraform config.
+  backend "gcs" {
+    bucket = "your-gcp-project-id-tf-state" # TODO: replace with your state bucket
+    prefix = "terraform-course/002-remote-state"
+  }
 }
 
 provider "google" {
@@ -19,9 +22,9 @@ provider "google" {
   region  = var.region
 }
 
-# TODO: resource "google_storage_bucket" "scratch" {
-#   name                        = "${var.project_id}-002-scratch"
-#   location                    = var.region
-#   force_destroy               = true
-#   uniform_bucket_level_access = true
-# }
+resource "google_storage_bucket" "scratch" {
+  name                        = "${var.project_id}-002-scratch"
+  location                    = var.region
+  force_destroy               = true
+  uniform_bucket_level_access = true
+}
