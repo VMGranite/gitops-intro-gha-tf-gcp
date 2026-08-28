@@ -1,4 +1,4 @@
-![haha](https://www.websitepulse.com/blog/how-to-tell-your-website-was-hacked)
+![haha](https://www.websitepulse.com/blog/uploads/hacked-website.png)
 
 
 # Intro to GitOps: GitHub Actions + Terraform + GCP
