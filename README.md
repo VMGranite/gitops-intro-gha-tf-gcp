@@ -1,6 +1,3 @@
-![haha](https://www.websitepulse.com/blog/uploads/hacked-website.png)
-
-
 # Intro to GitOps: GitHub Actions + Terraform + GCP
 
 This course assumes you already know Terraform basics — providers,
