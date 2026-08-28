@@ -1,3 +1,6 @@
+![haha](https://stock.adobe.com/images/cyber-attack-warning-message-system-hacked-displayed-on-laptop-screen/1987291928)
+
+
 # Intro to GitOps: GitHub Actions + Terraform + GCP
 
 This course assumes you already know Terraform basics — providers,
