@@ -122,6 +122,4 @@ just yourself.
   through that script once; it's the one piece of this template that's
   given to you complete rather than left as a `TODO`, since it's
   plumbing, not the lesson.
-- Nothing stops you from approving your own PR by disabling branch
-  protection temporarily — which is exactly why this is a policy
-  enforced by the repo admin, not something any one student controls.
+
