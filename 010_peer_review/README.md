@@ -1,4 +1,4 @@
-# 009 — Branch Protection & Peer Review
+# 010 — Branch Protection & Peer Review
 
 **Goal:** move to a shared class repo where a real second person
 reviews your `plan` output before your change can merge — and where
@@ -52,7 +52,7 @@ Everyone does this part individually, once:
    `.tf` files into it (from your solo repo, as of
    [007_create_vm_end_to_end](../007_create_vm_end_to_end) or
    [008_pipeline_only_apply](../008_pipeline_only_apply)) — or start
-   from `009_peer_review/template/infra/` if you'd rather begin clean.
+   from `010_peer_review/template/infra/` if you'd rather begin clean.
    Either way, edit the `backend "gcs"` block:
    - `bucket` — the shared bucket from Part 0.
    - `prefix` — `"terraform-course/team/YOUR_NAME"`. This is a new,
@@ -64,7 +64,7 @@ Everyone does this part individually, once:
    just now with your name in the filename so it doesn't collide with
    a classmate's:
    ```bash
-   cp 009_peer_review/template/.github/workflows/terraform-template.yml \
+   cp 010_peer_review/template/.github/workflows/terraform-template.yml \
      .github/workflows/YOUR_NAME-terraform.yml
    ```
    Then edit your new copy at `.github/workflows/YOUR_NAME-terraform.yml`:

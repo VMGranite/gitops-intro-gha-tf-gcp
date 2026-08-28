@@ -83,7 +83,7 @@ unrelated to any of this.
   email needs to be a GitHub **secret** — neither one is sensitive on
   its own; both are meaningless to anyone without also passing 003's
   attribute-condition and IAM-binding checks. That's the actual payoff
-  of WIF over a downloaded key. [011_secrets](../011_secrets) covers
+  of WIF over a downloaded key. [012_secrets](../012_secrets) covers
   what genuinely does need secret treatment in a pipeline.
 - If `auth` fails with something like `Permission
   'iam.serviceAccounts.getAccessToken' denied`, re-check

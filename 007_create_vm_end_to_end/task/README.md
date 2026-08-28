@@ -52,7 +52,7 @@ The VM exists in GCP, was created entirely by `006 - Terraform CI`'s
 
 - Leave this VM running — later exercises build directly on it:
   [008_pipeline_only_apply](../008_pipeline_only_apply) locks down who
-  can modify it, and [010_rollback_revert](../010_rollback_revert)
+  can modify it, and [011_rollback_revert](../011_rollback_revert)
   changes and then un-changes it.
 - Once [008_pipeline_only_apply](../008_pipeline_only_apply) is done,
   you won't be able to `terraform destroy` this locally anymore

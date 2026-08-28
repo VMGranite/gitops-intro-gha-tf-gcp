@@ -1,4 +1,4 @@
-# 012 — Scheduled Drift Detection
+# 013 — Scheduled Drift Detection
 
 **Goal:** a workflow that runs on a schedule, does nothing but
 `terraform plan`, and flags it when your VM's real state in GCP
@@ -103,7 +103,7 @@ drifted — the VM attribute you changed by hand.
   fixing it are deliberately two different actions here, so a false
   positive (a scheduled job misfiring) can never silently change
   anything on its own.
-- Combine this with [011_secrets](../011_secrets)'s webhook: add the
+- Combine this with [012_secrets](../012_secrets)'s webhook: add the
   same notify step here, conditioned on the plan step's outcome, so
   drift pages someone instead of only showing up if someone happens to
   check the Actions tab.

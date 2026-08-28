@@ -20,6 +20,6 @@ you have more than one. That copy step is what actually makes a
 workflow live. If this README is the only thing in here, you haven't
 reached 004 yet.
 
-[009_peer_review](../../009_peer_review) switches to a different
+[010_peer_review](../../010_peer_review) switches to a different
 naming scheme once the course moves to a shared repo — one workflow
 file per student (`YOUR_NAME-terraform.yml`), not one per exercise.

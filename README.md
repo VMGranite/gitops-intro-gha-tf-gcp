@@ -22,7 +22,7 @@ Each numbered exercise folder has two subfolders:
 
 Exercises that are pure setup/reading, or that build on files already
 personalized to you in the shared repo (from
-[009_peer_review](009_peer_review) onward, once your own
+[010_peer_review](010_peer_review) onward, once your own
 `students/YOUR_NAME/` folder and workflow exist), have a single
 `README.md` with inline instructions instead of a `task/`/`solution/`
 split — there's no single shared starting file left to copy from at
@@ -39,17 +39,18 @@ that point.
 | [006_plan_on_pr_apply_on_merge](006_plan_on_pr_apply_on_merge/task) | The core GitOps loop | `pull_request` → `plan`, `push` to `main` → `apply` |
 | [007_create_vm_end_to_end](007_create_vm_end_to_end/task) | Ship a VM through the loop | first real end-to-end PR → plan → merge → apply |
 | [008_pipeline_only_apply](008_pipeline_only_apply) | Restrict `apply` to the pipeline | IAM Deny policies, `plan` vs. `apply` permissions |
-| [009_peer_review](009_peer_review) | Branch protection & peer review (team exercise) | required reviews, shared class repo, reviewing a `plan` diff |
-| [010_rollback_revert](010_rollback_revert) | Rollback via `git revert` | git history as the rollback mechanism, not `terraform destroy` |
-| [011_secrets](011_secrets) | Secrets in GitHub Actions | `secrets:` context, environment protection rules |
-| [012_drift_detection](012_drift_detection) | Scheduled drift detection | `on: schedule`, plan-only jobs, alerting on drift |
-| [013_environments](013_environments) (optional) | Promote dev → prod | per-environment state, promotion via PR |
-| [014_policy_as_code](014_policy_as_code) (optional) | A policy gate | `tflint`/`checkov` as a required check |
+| [009_least_privilege_service_account](009_least_privilege_service_account) | Least-privilege IAM for the CI service account | scoped roles, replacing `Editor` |
+| [010_peer_review](010_peer_review) | Branch protection & peer review (team exercise) | required reviews, shared class repo, reviewing a `plan` diff |
+| [011_rollback_revert](011_rollback_revert) | Rollback via `git revert` | git history as the rollback mechanism, not `terraform destroy` |
+| [012_secrets](012_secrets) | Secrets in GitHub Actions | `secrets:` context, environment protection rules |
+| [013_drift_detection](013_drift_detection) | Scheduled drift detection | `on: schedule`, plan-only jobs, alerting on drift |
+| [014_environments](014_environments) (optional) | Promote dev → prod | per-environment state, promotion via PR |
+| [015_policy_as_code](015_policy_as_code) (optional) | A policy gate | `tflint`/`checkov` as a required check |
 
 ## General setup
 
 You'll need your own GCP project, with the `gcloud` CLI authenticated
 locally (`gcloud auth application-default login`), and a GitHub
-account. Exercises 000–008 are solo work against your own project.
-[009_peer_review](009_peer_review) onward moves to a shared class
+account. Exercises 000–009 are solo work against your own project.
+[010_peer_review](010_peer_review) onward moves to a shared class
 repo — that exercise explains the switch and what changes.

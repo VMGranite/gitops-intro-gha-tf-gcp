@@ -1,4 +1,4 @@
-# 011 — Secrets in GitHub Actions
+# 012 — Secrets in GitHub Actions
 
 **Goal:** give the pipeline a genuinely sensitive value — a webhook
 URL that posts a message on every successful `apply` — the right way:
@@ -49,7 +49,7 @@ for.
      webhook URL from step 1.
 4. Edit your own `.github/workflows/YOUR_NAME-terraform.yml` — the
    file already at the shared repo's **root**, the one you created in
-   [009_peer_review](../009_peer_review) — on the `apply` job:
+   [010_peer_review](../010_peer_review) — on the `apply` job:
    - Add `environment: YOUR_NAME-prod` at the job level (a sibling of
      `runs-on:`, `if:`, `defaults:`). This is what links the job to
      the environment's protection rules and makes its secret
@@ -77,7 +77,7 @@ for.
 
 `apply` visibly pauses for a second, separate approval after PR merge
 — not just the PR review from
-[009_peer_review](../009_peer_review) — and a request lands at your
+[010_peer_review](../010_peer_review) — and a request lands at your
 webhook URL only after that approval.
 
 ## Pro-tips

@@ -1,4 +1,4 @@
-# 010 — Rollback via `git revert`
+# 011 — Rollback via `git revert`
 
 **Goal:** make a change, decide it was a mistake, and undo it the
 GitOps way — a new commit that reverses the old one, going through the
@@ -7,7 +7,7 @@ exact same PR/plan/review/merge/apply loop as any other change. Not
 hand.
 
 This continues in the shared repo from
-[009_peer_review](../009_peer_review), inside your own
+[010_peer_review](../010_peer_review), inside your own
 `students/YOUR_NAME/infra/`.
 
 ## Why not just fix it by hand, or rewrite history?
@@ -35,7 +35,7 @@ through review and CI exactly like anything else.
 1. **Make a change** to your VM in `students/YOUR_NAME/infra/main.tf`
    — bump `machine_type` from `"e2-micro"` to `"e2-small"`. Branch,
    commit, push, open a PR, get it reviewed (same loop as
-   [009](../009_peer_review)), merge. Confirm `apply` ran and the
+   [010](../010_peer_review)), merge. Confirm `apply` ran and the
    change took effect.
 2. **Find the merge commit** on `main` that introduced this change:
    ```bash

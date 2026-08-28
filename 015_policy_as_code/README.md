@@ -1,4 +1,4 @@
-# 014 — A Policy Gate (Optional)
+# 015 — A Policy Gate (Optional)
 
 **Goal:** add an automated check that can block a merge for reasons
 `terraform validate` doesn't catch — a rule about what your
@@ -38,7 +38,7 @@ path to a rule that actually catches something interesting in `infra/`.
    than assuming.
 3. Add this new check to branch protection's required status checks
    (**Settings → Branches**), the same way `plan` was added in
-   [009_peer_review](../009_peer_review) Part 0.
+   [010_peer_review](../010_peer_review) Part 0.
 4. Prove it works both ways: write a change that should **pass** (e.g.
    a well-formed VM) and one that should **fail** (e.g. a firewall
    rule open to `0.0.0.0/0`) and confirm the check behaves correctly
@@ -56,5 +56,5 @@ unreviewed PR is blocked.
 `terraform validate`, the `plan` check, and this policy check are
 three different gates in the same pipeline, catching three different
 kinds of problems. What's the fourth kind of problem none of them
-catch — the kind only [009_peer_review](../009_peer_review)'s human
+catch — the kind only [010_peer_review](../010_peer_review)'s human
 reviewer is positioned to catch?

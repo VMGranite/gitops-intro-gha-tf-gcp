@@ -1,4 +1,4 @@
-# 013 — Promote Dev → Prod (Optional)
+# 014 — Promote Dev → Prod (Optional)
 
 **Goal:** run the same VM config against two separate environments —
 `dev` and `prod` — with dev applying automatically on merge, and prod
@@ -30,7 +30,7 @@ A workable structure:
     they've decided dev looks good.
   - Gate the prod `apply` job with the same `environment:` +
     required-reviewer mechanism from
-    [011_secrets](../011_secrets), so promotion is "approve a pending
+    [012_secrets](../012_secrets), so promotion is "approve a pending
     deployment," not "run a different command."
 
 ## Questions worth answering as you build this

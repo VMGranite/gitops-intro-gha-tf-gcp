@@ -97,7 +97,11 @@ ability.
 
 ## Next
 
-[009_peer_review](../009_peer_review) moves to a shared class repo —
-now that a human genuinely cannot bypass the pipeline, review on the
-PR isn't just courtesy, it's the only real checkpoint before anything
-actually changes.
+[009_least_privilege_service_account](../009_least_privilege_service_account)
+does the equivalent narrowing for the *pipeline's* identity, not
+yours — the CI service account has been running as `Editor` since
+[003](../003_gcp_github_trust); this is where that gets tightened up.
+After that, [010_peer_review](../010_peer_review) moves to a shared
+class repo — now that a human genuinely cannot bypass the pipeline,
+review on the PR isn't just courtesy, it's the only real checkpoint
+before anything actually changes.

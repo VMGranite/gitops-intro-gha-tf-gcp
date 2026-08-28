@@ -209,6 +209,9 @@ repo.
   introduces a new resource type — real production setups should
   scope this much tighter, including on the state bucket's own access
   grants.
+  [009_least_privilege_service_account](../009_least_privilege_service_account)
+  is where this course actually does that narrowing, once `infra/`'s
+  resource types have settled down.
 - Nothing here is testable end-to-end yet — there's no workflow to run
   it from until [005_pipeline_remote_state](../005_pipeline_remote_state).
   If something's misconfigured, you won't find out until then; it's
