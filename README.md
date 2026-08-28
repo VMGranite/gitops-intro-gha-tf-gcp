@@ -1,4 +1,4 @@
-![haha](https://stock.adobe.com/images/cyber-attack-warning-message-system-hacked-displayed-on-laptop-screen/1987291928)
+![haha](https://www.websitepulse.com/blog/how-to-tell-your-website-was-hacked)
 
 
 # Intro to GitOps: GitHub Actions + Terraform + GCP
